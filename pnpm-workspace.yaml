@@ -2,3 +2,4 @@ packages:
   - 'packages/*'
   - 'apps/*'
   - 'single-spa/*'
+  - 'qiankun/*'
