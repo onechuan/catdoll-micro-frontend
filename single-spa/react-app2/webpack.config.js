@@ -2,20 +2,25 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    libraryTarget: "system",
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ],
           },
         },
       },
@@ -26,8 +31,7 @@ module.exports = {
     ],
   },
   devServer: {
-    port: 9000,
-    historyApiFallback: true,
+    port: 8081,
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
@@ -37,4 +41,8 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  externals: ["react", "react-dom", "single-spa"],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
 };

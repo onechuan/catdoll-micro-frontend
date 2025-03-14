@@ -1,15 +1,29 @@
 {
   "name": "catdoll-micro-frontend",
   "version": "1.0.0",
-  "description": "",
+  "description": "A micro-frontend application built with single-spa, React, and Vue 3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install:all": "pnpm install && cd single-spa/main && pnpm install && cd ../react-app && pnpm install && cd ../vue3-app && pnpm install",
+    "start:main": "cd single-spa/main && pnpm start",
+    "start:react": "cd single-spa/react-app && pnpm start",
+    "start:react2": "cd single-spa/react-app2 && pnpm start",
+    "start": "concurrently \"pnpm run start:main\" \"pnpm run start:react\" \"pnpm run start:react2\"",
+    "build:main": "cd single-spa/main && pnpm build",
+    "build:react": "cd single-spa/react-app && pnpm build",
+    "build:vue": "cd single-spa/react-app2 && pnpm build",
+    "build": "pnpm run build:main && pnpm run build:react && pnpm run build:vue"
   },
-  "keywords": [],
+  "keywords": [
+    "micro-frontend",
+    "single-spa",
+    "react",
+    "vue"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "typescript": "^5.8.2"
   }
-}
+} 

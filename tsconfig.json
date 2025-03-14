@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"]
+  },
+  "include": ["single-spa/**/*.ts", "single-spa/**/*.d.ts", "single-spa/**/*.tsx", "single-spa/**/*.vue"],
+  "exclude": ["node_modules"]
+} 
